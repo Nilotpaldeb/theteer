@@ -67,7 +67,7 @@ cc.run({
                 ],
                 blocks: [
                     {
-                        title: 'Cookie usage',
+                        title: 'Usage',
                         description: 'Select the purposes for which you allow the use of cookies and similar technologies. You can change your settings at any time by selecting "Cookie Settings" at the bottom of the site. Learn more about our <a href="https://theteer.com/privacy/" class="cc-link">Privacy Policy</a>.'
                     }, {
                         title: 'Strictly necessary cookies',
