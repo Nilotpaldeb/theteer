@@ -1,5 +1,3 @@
-var LOREM_IPSUM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-
 // obtain cookieconsent plugin
 var cc = initCookieConsent();
 
@@ -64,85 +62,7 @@ cc.run({
                     text: 'Accept all',
                     role: 'accept_all'      //'accept_selected' or 'accept_all'
                 },
-                secondary_btn: {
-                    text: 'Preferences',
-                    role: 'settings'       //'settings' or 'accept_necessary'
-                },
                 revision_message: '<br><br> Dear user, terms and conditions have changed since the last time you visisted!'
-            },
-            settings_modal: {
-                title: 'Cookie settings',
-                save_settings_btn: 'Save current selection',
-                accept_all_btn: 'Accept all',
-                reject_all_btn: 'Reject all',
-                close_btn_label: 'Close',
-                cookie_table_headers: [
-                    {col1: 'Name'},
-                    {col2: 'Domain'},
-                    {col3: 'Expiration'}
-                ],
-                blocks: [
-                    {
-                        title: 'Cookie usage',
-                        description: LOREM_IPSUM + ' <a href="#" class="cc-link">Privacy Policy</a>.'
-                    }, {
-                        title: 'Strictly necessary cookies',
-                        description: LOREM_IPSUM + LOREM_IPSUM + "<br><br>" + LOREM_IPSUM + LOREM_IPSUM,
-                        toggle: {
-                            value: 'necessary',
-                            enabled: true,
-                            readonly: true  //cookie categories with readonly=true are all treated as "necessary cookies"
-                        }
-                    }, {
-                        title: 'Analytics & Performance cookies',
-                        description: LOREM_IPSUM,
-                        toggle: {
-                            value: 'analytics',
-                            enabled: false,
-                            readonly: false
-                        },
-                        cookie_table: [
-                            {
-                                col1: '^_ga',
-                                col2: 'yourdomain.com',
-                                col3: 'description ...',
-                                is_regex: true
-                            },
-                            {
-                                col1: '_gid',
-                                col2: 'yourdomain.com',
-                                col3: 'description ...',
-                            },
-                            {
-                                col1: '_my_cookie',
-                                col2: 'yourdomain.com',
-                                col3: 'test cookie with custom path ...',
-                                path: '/demo'       // needed for autoclear cookies
-                            }
-                        ]
-                    }, {
-                        title: 'Targeting & Advertising cookies',
-                        description: 'If this category is deselected, <b>the page will reload when preferences are saved</b>... <br><br>(demo example with reload option enabled, for scripts like microsoft clarity which will re-set cookies and send beacons even after the cookies have been cleared by the cookieconsent\'s autoclear function)',
-                        toggle: {
-                            value: 'targeting',
-                            enabled: false,
-                            readonly: false,
-                            reload: 'on_disable'            // New option in v2.4, check readme.md
-                        },
-                        cookie_table: [
-                            {
-                                col1: '^_cl',               // New option in v2.4: regex (microsoft clarity cookies)
-                                col2: 'yourdomain.com',
-                                col3: 'These cookies are set by microsoft clarity',
-                                // path: '/',               // New option in v2.4
-                                is_regex: true              // New option in v2.4
-                            }
-                        ]
-                    }, {
-                        title: 'More information',
-                        description: LOREM_IPSUM + ' <a class="cc-link" href="https://orestbida.com/contact/">Contact me</a>.',
-                    }
-                ]
             }
         }
     }
