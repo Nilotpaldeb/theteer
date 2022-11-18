@@ -96,7 +96,7 @@ cc.run({
                         },
                     }, {
                         title: 'More information',
-                        description: "If you are facing any issues related to Cookies, please feel free to <a class="cc-link" href="https://theteer.com/contact-us/">Contact us</a>.',
+                        description: 'If you are facing any issues related to Cookies, please feel free to <a class="cc-link" href="https://theteer.com/contact-us/">Contact us</a>.',
                     }
                 ]
             }
