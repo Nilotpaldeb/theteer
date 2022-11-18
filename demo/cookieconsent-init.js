@@ -1,38 +1,25 @@
-var LOREM_IPSUM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-
 // obtain cookieconsent plugin
 var cc = initCookieConsent();
 
 // run plugin with config object
 cc.run({
     current_lang: 'en',
-    autoclear_cookies: true,                    // default: false
-    cookie_name: 'cc_cookie_demo2',             // default: 'cc_cookie'
-    cookie_expiration: 365,                     // default: 182
-    page_scripts: true,                         // default: false
-    force_consent: true,                        // default: false
-
-    // auto_language: null,                     // default: null; could also be 'browser' or 'document'
-    // autorun: true,                           // default: true
-    // delay: 0,                                // default: 0
-    // hide_from_bots: false,                   // default: false
-    // remove_cookie_tables: false              // default: false
-    // cookie_domain: location.hostname,        // default: current domain
-    // cookie_path: '/',                        // default: root
-    // cookie_same_site: 'Lax',
-    // use_rfc_cookie: false,                   // default: false
-    // revision: 0,                             // default: 0
+    autoclear_cookies: true,
+    cookie_name: 'cc_cookie_theteer',
+    cookie_expiration: 365,
+    page_scripts: true,
+    force_consent: true,
 
     gui_options: {
         consent_modal: {
-            layout: 'cloud',                    // box,cloud,bar
-            position: 'bottom center',          // bottom,middle,top + left,right,center
-            transition: 'slide'                 // zoom,slide
+            layout: 'cloud',
+            position: 'bottom center',
+            transition: 'slide'
         },
         settings_modal: {
-            layout: 'bar',                      // box,bar
-            position: 'left',                   // right,left (available only if bar layout selected)
-            transition: 'slide'                 // zoom,slide
+            layout: 'bar',
+            position: 'left',
+            transition: 'slide'
         }
     },
 
@@ -47,7 +34,6 @@ cc.run({
     onChange: function (cookie, changed_preferences) {
         console.log('onChange fired!');
 
-        // If analytics category is disabled => disable google analytics
         if (!cc.allowedCategory('analytics')) {
             typeof gtag === 'function' && gtag('consent', 'update', {
                 'analytics_storage': 'denied'
@@ -62,11 +48,11 @@ cc.run({
                 description: 'Our website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <a href="#privacy-policy" class="cc-link">Privacy policy</a>',
                 primary_btn: {
                     text: 'Accept all',
-                    role: 'accept_all'      //'accept_selected' or 'accept_all'
+                    role: 'accept_all'
                 },
                 secondary_btn: {
                     text: 'Preferences',
-                    role: 'settings'       //'settings' or 'accept_necessary'
+                    role: 'settings'
                 },
                 revision_message: '<br><br> Dear user, terms and conditions have changed since the last time you visisted!'
             },
@@ -84,42 +70,23 @@ cc.run({
                 blocks: [
                     {
                         title: 'Cookie usage',
-                        description: LOREM_IPSUM + ' <a href="#" class="cc-link">Privacy Policy</a>.'
+                        description: 'Select the purposes for which you allow the use of cookies and similar technologies. You can change your settings at any time by selecting "Cookie Settings" at the bottom of the site. Learn more about our <a href="https://theteer.com/privacy/" class="cc-link">Privacy Policy</a>.'
                     }, {
                         title: 'Strictly necessary cookies',
-                        description: LOREM_IPSUM + LOREM_IPSUM + "<br><br>" + LOREM_IPSUM + LOREM_IPSUM,
+                        description: "Necessary cookies and similar technologies implements the basic functions of the website such as page navigation, use of forms and shopping cart functionality. Without these technologies the website will not work properly.",
                         toggle: {
                             value: 'necessary',
                             enabled: true,
-                            readonly: true  //cookie categories with readonly=true are all treated as "necessary cookies"
+                            readonly: true
                         }
                     }, {
                         title: 'Analytics & Performance cookies',
-                        description: LOREM_IPSUM,
+                        description: 'Analytics and user experience related cookies and similar technologies allow us to collect information about how our website is used. This information helps us to improve the content and usability of the website.',
                         toggle: {
                             value: 'analytics',
                             enabled: false,
                             readonly: false
                         },
-                        cookie_table: [
-                            {
-                                col1: '^_ga',
-                                col2: 'yourdomain.com',
-                                col3: 'description ...',
-                                is_regex: true
-                            },
-                            {
-                                col1: '_gid',
-                                col2: 'yourdomain.com',
-                                col3: 'description ...',
-                            },
-                            {
-                                col1: '_my_cookie',
-                                col2: 'yourdomain.com',
-                                col3: 'test cookie with custom path ...',
-                                path: '/demo'       // needed for autoclear cookies
-                            }
-                        ]
                     }, {
                         title: 'Targeting & Advertising cookies',
                         description: 'If this category is deselected, <b>the page will reload when preferences are saved</b>... <br><br>(demo example with reload option enabled, for scripts like microsoft clarity which will re-set cookies and send beacons even after the cookies have been cleared by the cookieconsent\'s autoclear function)',
@@ -127,20 +94,11 @@ cc.run({
                             value: 'targeting',
                             enabled: false,
                             readonly: false,
-                            reload: 'on_disable'            // New option in v2.4, check readme.md
+                            reload: 'on_disable'
                         },
-                        cookie_table: [
-                            {
-                                col1: '^_cl',               // New option in v2.4: regex (microsoft clarity cookies)
-                                col2: 'yourdomain.com',
-                                col3: 'These cookies are set by microsoft clarity',
-                                // path: '/',               // New option in v2.4
-                                is_regex: true              // New option in v2.4
-                            }
-                        ]
                     }, {
                         title: 'More information',
-                        description: LOREM_IPSUM + ' <a class="cc-link" href="https://orestbida.com/contact/">Contact me</a>.',
+                        description: "If you are facing any issues related to Cookies, please feel free to <a class="cc-link" href="https://theteer.com/contact-us/">Contact us</a>.',
                     }
                 ]
             }
